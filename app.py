@@ -92,4 +92,8 @@ def handle_message(data):
     chat_data = {'username': data['username'], 'chat': data['msg']}
     chats_collection.insert_one(chat_data)
     send({'username': data['username'], 'msg': data['msg']}, room=data['room'])
+    
+if __name__ == '__main__':
+    socketio.run(app, debug=True)
+
 
